@@ -1,42 +1,17 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>COVIDCARE</title>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <nav class="navber navbar-default navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/">Covid-Care</a>
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="./html/login.html">Login</a></li>
-            <li><a href="./html/register.html">Sign Up</a></li>
-            <li><a href="/logout">Logout</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+{% extends 'covid/basic.html' %}
+{% block body %}
     <iframe
-      src="covid.html"
+      src="{% url 'covid' %}"
       height="1000"
-      width="340"
+      width="30%"
       title="frame example2"
       target="home.html"
     ></iframe>
     <iframe
       src="https://www.bing.com/covid/local/india"
       height="1000"
-      width="1000"
+      width="69%"
       title="Iframe Example"
       target="home.html"
     ></iframe>
-  </body>
-</html>
+{% endblock %}

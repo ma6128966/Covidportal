@@ -1,21 +1,18 @@
-<html>
-  <head>
-    <link rel="stylesheet" href="../css/login.css" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
+{% extends 'covid/basic.html' %}
+{% block css %}
+  #login {
+    margin: 200px 200px 200px 500px;
+  }
+{% endblock %}
+{% block body %}
     <div class="container" id="login">
       <div class="row thumbnail">
         <h1 style="text-align: center;">
           Login
         </h1>
         <div style="width: 40%; margin: 40px auto;">
-          <form action="/login" method="POST">
+          <form action="" method="POST">
+            {% csrf_token %}
             <div class="form-group">
               <input
                 class="form-control"
@@ -37,9 +34,8 @@
               <button class="btn btn-lg btn-primary btn-block">Submit!</button>
             </div>
           </form>
-          <a href="register.html">New User?</a>
+          <a href="{% url 'register' %}">New User?</a>
         </div>
       </div>
     </div>
-  </body>
-</html>
+{% endblock %}

@@ -1,21 +1,19 @@
-<html>
-  <head>
-    <link rel="stylesheet" href="../css/login.css" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-      crossorigin="anonymous"
-    />
-  </head>
+{% extends 'covid/basic.html' %}
+{% block css %}
+  #login {
+    margin: 200px 200px 200px 500px;
+  }
+{% endblock %}
+{% block body %}
   <body>
     <div class="container" id="login">
       <div class="row thumbnail">
         <h1 style="text-align: center;">
-          Book for a Test
+          Patient Registration
         </h1>
         <div style="width: 40%; margin: 40px auto;">
-          <form action="" method="POST">
+          {% if nothing %}
+          <form action=" " method="POST">
             <div class="form-group">
               <input
                 class="form-control"
@@ -27,12 +25,75 @@
             <div class="form-group">
               <input
                 class="form-control"
-                type="age"
+                type="number"
+                min="0"
                 name="age"
                 placeholder="Age"
               />
             </div>
+            <fieldset>
+              <legend>Covid-Test</legend>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                  Tested Covid Positive
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                  Tested Covid Negative
+                </label>
+              </div>
+            </fieldset>
+
             <br />
+          </form>
+          {% endif %}
+
+            <!--If covid +ve-->
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                name="hospitalName"
+                placeholder="Hospital Name"
+              />
+            </div>
+            <p>We have ___ beds available</p>
+            <!--If covid -ve-->
+            <fieldset>
+              <legend>Want a Test</legend>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="yes"
+                  id="yes"
+                  value="yes"
+                />
+                Yes
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="no"
+                  id="no"
+                  value="no"
+                />
+                no
+              </div>
+            </fieldset>
+            <!--If want a test==yes then decide the hospital in which you want the test-->
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                name="testHospital Name"
+                placeholder="Test Hospital Name"
+              />
+            </div>
             <div class="form-group">
               <button class="btn btn-lg btn-primary btn-block">Submit!</button>
             </div>
@@ -40,5 +101,4 @@
         </div>
       </div>
     </div>
-  </body>
-</html>
+{% endblock %}
